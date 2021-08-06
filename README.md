@@ -7,6 +7,5 @@ This is the code repository for the paper: "Continual Learning for Grounded Inst
 ## Data
 
 ## Annotaion UI
-<a href="media/interaction.mov" title="Link Title"></a>
 ### Unity Webapp
 ### Python Model Server
