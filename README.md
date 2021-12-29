@@ -43,5 +43,4 @@ If you find this our work useful in your research, please consider citing the fo
 ```
 
 ## Ackowledegement
-We would like to thank [Freda](https://ttic.uchicago.edu/~freda/) for making their code (the code in this repo is largely borrowed from the original VGNSL implementation) public and responding promptly to our inquiry on [Visually Grounded Neural Syntax Acquisition](https://ttic.uchicago.edu/~freda/project/vgnsl/) (Shi et al., ACL2019). 
-
+This research was supported by ARO W911NF21-1-0106, a Google Focused Award, Masason Foundation, a Facebook Fellowship, and NSF under grants No. 1750499 and DGE-1650441. We thank Jonathan Chang, Sasha Rush, the Cornell NLP Group, Robert Hawkins, Dipendra Misra, and John Langford for discussion and comments; Suyi Diao for Unity development; Anna Effenberger for code to compute syntax complexity; Ge Gao, Koji Shiono, and Takayuki Kojima for feedback on our interaction platform; and the crowdsourcing workers for participating in our data collection. Finally, we thank the action editor and the anonymous reviewers for detailed comments.
