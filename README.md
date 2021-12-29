@@ -1,8 +1,10 @@
-This is the code repository for the paper: "Continual Learning for Grounded Instruction Generation by Observing Human Following Behavior", [Noriyuki Kojima](https://kojimano.github.io/), [Alane Suhr](http://alanesuhr.com/) and [Yoav Artzi](https://yoavartzi.com/) (to be appeared at TACL 2021).
+# Continual Learning for Grounded Instruction Generation by Observing Human Following Behavior
+
+This is the code repository for the paper: "Continual Learning for Grounded Instruction Generation by Observing Human Following Behavior", [Noriyuki Kojima](https://kojimano.github.io/), [Alane Suhr](http://alanesuhr.com/) and [Yoav Artzi](https://yoavartzi.com/) (TACL 2021, presented at EMNLP 2021).
  
  
-### About
-[paper](https://arxiv.org/abs/2108.04812)| [talk](https://www.youtube.com/watch?v=KkgIMPTS7H0&t=1s) | [project page](https://lil.nlp.cornell.edu/cerealbar/)
+## About
+[paper](https://arxiv.org/abs/2108.04812) | [talk](https://www.youtube.com/watch?v=KkgIMPTS7H0&t=1s) | [project page](https://lil.nlp.cornell.edu/cerealbar/)
 
 We study continual learning for natural language instruction generation, by observing human users' instruction execution. We focus on a collaborative scenario, where the system both acts and delegates tasks to human users using natural language. We compare user execution of generated instructions to the original system intent as an indication to the system's success communicating its intent. We show how to use this signal to improve the system's ability to generate instructions via contextual bandit learning. In interaction with real users, our system demonstrates dramatic improvements in its ability to generate language over time.
 
@@ -10,17 +12,63 @@ We study continual learning for natural language instruction generation, by obse
  <img src="media/tacl2021.gif" width="500" align=/>
 </p>
 
-## Codebase
+# Codebase
 
-### Contents
-1. 
-## Model
+## Installation
 
-## Data
+1. Create the conda environment: 
+```conda create -n cb_gen python=3.7```
+1. Make sure that git-LFS is installed before cloning the repo.
+1. Clone the repo.
+1. Install the requirements: ```pip install -r requirements.txt```
+1. Unzip the preprocessed data: `unzip preprocessed.zip`. This will create a new directory `preprocessed/` including 
+two subdirectories: (1) `examples/` includes a pickle file for each example in the dataset; the filenames are prefixed
+with which split the example is from. (2) `games/` includes a pickle file for each original CerealBar game, which 
+includes the game ID and all the static environment information for that game.
+1. Make a directory to store experiments: ```mkdir experiments/```
 
-## Annotaion UI
-### Unity Webapp
-### Python Model Server
+You will need to install pytorch separately according to your machine's requirements. We tested using torch 1.6.0 and
+1.2.0. See [this page](https://pytorch.org/get-started/previous-versions/) for details.
+ 
+## Subdirectories
+- `config/` defines configuration files, including for running the program, model parameters, etc. Configurations 
+are dataclasses and stored as JSON files on disk in the `json_configs/` file.
+- `data/` defines classes and functions for loading and storing data, including instructions and game information.
+- `environment/` defines information about the CerealBar environment, including props, positions, cards, etc.
+- `evaluation/` is used to evaluate models; defines metrics, evaluation functions, and evaluation loops.
+- `experiments/` contains subdirectories for each experiment ran. 
+- `inference/` is used to run inference on a model.
+- `json_configs/` includes configurations for running the program.
+- `learning/` is used to train a model.
+- `protobuf/` is used to store the protobuf format for communication with the standalone or the web server.
+- `model/` defines the model architectures.
+- `preprocessed/` contains preprocessed data (instruction examples and games).
+- `simulation/` contains code for simulating the CerealBar game, either through the Unity standalone or a python copy.
+- `util/` contains various utilities.
+- `web_agent/` contains code necessary for running the model in live games in browser.
+
+
+## Data and Checkpints
+Please refer `/checkpoints/README.md` to download trained models.
+
+
+## Testing trained models
+```
+```
+### Visualization
+```
+```
+
+## Training models
+
+### Pre-training on human-human interaction data
+```
+```
+### Fine-tuning on human-human interaction data
+```
+```
+
+## Notes
 
 ### License
 MIT
