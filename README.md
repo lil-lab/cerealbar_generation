@@ -6,8 +6,9 @@ This is the code repository for the paper: "Continual Learning for Grounded Inst
 
 We study continual learning for natural language instruction generation, by observing human users' instruction execution. We focus on a collaborative scenario, where the system both acts and delegates tasks to human users using natural language. We compare user execution of generated instructions to the original system intent as an indication to the system's success communicating its intent. We show how to use this signal to improve the system's ability to generate instructions via contextual bandit learning. In interaction with real users, our system demonstrates dramatic improvements in its ability to generate language over time.
 
-![](media/tacl2021.gif)
-
+<p align="center">
+ <img src="media/tacl2021.gif" width="500" align=/>
+</p>
 
 ## Codebase
 
