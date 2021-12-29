@@ -31,22 +31,11 @@ You will need to install pytorch separately according to your machine's requirem
 1.2.0. See [this page](https://pytorch.org/get-started/previous-versions/) for details.
  
 ## Subdirectories
-- `config/` defines configuration files, including for running the program, model parameters, etc. Configurations 
-are dataclasses and stored as JSON files on disk in the `json_configs/` file.
-- `data/` defines classes and functions for loading and storing data, including instructions and game information.
-- `environment/` defines information about the CerealBar environment, including props, positions, cards, etc.
-- `evaluation/` is used to evaluate models; defines metrics, evaluation functions, and evaluation loops.
-- `experiments/` contains subdirectories for each experiment ran. 
-- `inference/` is used to run inference on a model.
-- `json_configs/` includes configurations for running the program.
-- `learning/` is used to train a model.
-- `protobuf/` is used to store the protobuf format for communication with the standalone or the web server.
-- `model/` defines the model architectures.
-- `preprocessed/` contains preprocessed data (instruction examples and games).
-- `simulation/` contains code for simulating the CerealBar game, either through the Unity standalone or a python copy.
-- `util/` contains various utilities.
-- `web_agent/` contains code necessary for running the model in live games in browser.
-
+- `model/` defines the model architectures for instruction generation in the cerealbar
+- `agents/` defines information about the CerealBar agents and environment
+- `learning/` is used to train and evalute models.
+- `data/` defines classes and functions for processing data. 
+- `chekcpoints/` contains model checkpoints. 
 
 ## Data and Checkpints
 Please refer `/checkpoints/README.md` to download trained models.
