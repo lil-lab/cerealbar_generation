@@ -3,7 +3,7 @@ We provide checkpoints for the models trained during the 14 rounds of user studi
 Here, we are listing checkpoints of one model from each round (note that we trained four models for each round). The complete checkpoints are available upon request (please open a github issue). 
 
 
-| Round (where the model is deployed) | Checkpoints   |
+| Round of the model deployed | Checkpoints   |
 | ------------- | ------------- |
 | 1 (pre-trained)   |  [checkpoints](https://drive.google.com/file/d/1UyCoNHgoDQP980C97aBbKgxLO6dGJ-1J/view?usp=sharing)  |
 | 2   |  [checkpoints](https://drive.google.com/file/d/1simIfgxDrKkghP4v0Uq5fcAPo8oIqmC-/view?usp=sharing)  |
