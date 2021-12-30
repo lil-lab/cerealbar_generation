@@ -51,8 +51,7 @@ python -m learning.training --train_config_file_name learning/configs/continual_
 1. Please refer `/checkpoints/README.md` to download checkpoints for the trained models (also change `pretrained_checkpoint_path` in `learning/configs/eval.yml` to your desired checkpoint path).
 1. Note that all the evaluation scores reported in our paper is solely based on human users actually playing the games, and we do not report automated evaluation metrics based on human written instructions.
 ```
-# This example is evaluating one of the models deployed to Round 10
-# Please change `pretrained_checkpoint_path` in `learning/configs/eval.yml` to your desired checkpoint path.
+# This example is evaluating one of the models deployed at Round 10
 python -m learning.training --train_config_file_name learning/configs/eval.yml --experiment_name eval_automated --turnoff_wandb --validate_only
 ```
 
