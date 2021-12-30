@@ -26,7 +26,7 @@ We study continual learning for natural language instruction generation, by obse
 - `model/` defines the model architectures for instruction generation in the CerealBar
 - `agents/` defines information about the CerealBar agent and environment
 - `learning/` is used to train models.
-- `data/` contains data and define scripts for processing data. 
+- `data/` contains data. 
 - `chekcpoints/` contains model checkpoints. 
 
 
