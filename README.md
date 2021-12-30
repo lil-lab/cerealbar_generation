@@ -31,7 +31,7 @@ We study continual learning for natural language instruction generation, by obse
 - `chekcpoints/` contains model checkpoints. 
 
 
-### Train models
+### Training models
 
 #### Pre-training on human-human interaction data  
 1. Download formatted GPT-2 weights from [the link](https://drive.google.com/file/d/1UZRXftmNhUIf8iR3g5BoiWNShHcNvlZR/view?usp=sharing) and put it under `/checkpoints/gpt-2`
@@ -40,21 +40,24 @@ We study continual learning for natural language instruction generation, by obse
 ```
 python -m learning.training --train_config_file_name learning/configs/pretraining.yml --experiment_name pretraining --max_epochs 400 --checkpoint_step 40000 --turnoff_wandb
 ```
-#### Training a model from scratch on human-human & human-system interaction data
+#### Training from scratch on human-human & human-system interaction data
 1. Follow `/data/README.md` to download processed human-system interaction data.
 ```
 # This example is training a model on the aggregated data after the second round of human-system interactions.
 python -m learning.training --train_config_file_name learning/configs/continual_example.yml --experiment_name pretraining --max_epochs 400 --checkpoint_step 40000 --turnoff_wandb
 ```
 
-### Analyze models
-#### Downloading model checkpoints
+#### Evaluating models on human written instrucions using automated evaluation metrics
+1. Please make sure you already downloaded the processed human-human interaction data by following `/data/README.md`. 
 1. Please refer `/checkpoints/README.md` to download checkpoints for the trained models.
+1. All the evaluation reported in our paper is based on human users playing the games, and we do not report the automated evaluation metrics based on human written instructions.
 ```
 ```
 
 ### Notes
-The current version of the repo does not include a pipeline for human-system interactions (e.g., the backend server to communicate with the Unity game, a deterministic planner to generate system's path-plan and etc.) 
+The current release of the repo does not include following components
+ - A pipeline for human-system interactions (e.g., the backend server to communicate with the Unity game, a deterministic planner to generate system's path-plan, and scripts to evaluate and process interaction data).
+ - A visualization tools to interpret the model behaviors on the Unity Graphics.
 
 ### License
 MIT (partilaly Apache License 2.0, see `model/instruction_generator_model.py`)
