@@ -33,14 +33,14 @@ We study continual learning for natural language instruction generation, by obse
 
 ### Training models
 
-#### Pre-training on human-human interaction data  
+#### Pre-training models on human-human interaction data  
 1. Download formatted GPT-2 weights from [the link](https://drive.google.com/file/d/1UZRXftmNhUIf8iR3g5BoiWNShHcNvlZR/view?usp=sharing) and put it under `/checkpoints/gpt-2`
 1. Follow `/data/README.md` to download processed human-human interaction data.
 
 ```
 python -m learning.training --train_config_file_name learning/configs/pretraining.yml --experiment_name pretraining --max_epochs 400 --checkpoint_step 40000 --turnoff_wandb
 ```
-#### Training from scratch on human-human & human-system interaction data
+#### Training models from scratch on aggregated human-human & human-system interaction data
 1. Follow `/data/README.md` to download processed human-system interaction data.
 ```
 # This example is training a model on the aggregated data after the second round of human-system interactions.
