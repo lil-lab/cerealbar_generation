@@ -33,22 +33,22 @@ We study continual learning for natural language instruction generation, by obse
 ### Training models
 
 #### Pre-training models on human-human interaction data  
-1. Download formatted GPT-2 weights from [the link](https://drive.google.com/file/d/1UZRXftmNhUIf8iR3g5BoiWNShHcNvlZR/view?usp=sharing) and put it under `/checkpoints/gpt-2`
-1. Follow `/data/README.md` to download processed human-human interaction data.
+1. Download formatted GPT-2 weights from [the link](https://drive.google.com/file/d/1UZRXftmNhUIf8iR3g5BoiWNShHcNvlZR/view?usp=sharing) and put it under `checkpoints/gpt-2`
+1. Follow `data/README.md` to download processed human-human interaction data.
 
 ```
 python -m learning.training --train_config_file_name learning/configs/pretraining.yml --experiment_name pretraining --max_epochs 400 --checkpoint_step 40000 --turnoff_wandb
 ```
 #### Training models from scratch on aggregated human-human & human-system interaction data
-1. Follow `/data/README.md` to download processed human-system interaction data.
+1. Follow `data/README.md` to download processed human-system interaction data.
 ```
 # This example is training a model on the aggregated data after the second round of human-system interactions.
 python -m learning.training --train_config_file_name learning/configs/continual_example.yml --experiment_name pretraining --max_epochs 400 --checkpoint_step 40000 --turnoff_wandb
 ```
 
 #### Evaluating models on human written instrucions using automated evaluation metrics
-1. Please make sure you already downloaded the processed human-human interaction data by following `/data/README.md`. 
-1. Please refer `/checkpoints/README.md` to download checkpoints for the trained models (also change the path under `pretrained_checkpoint_path` in `learning/configs/eval.yml` to your desired checkpoint path).
+1. Please make sure you already downloaded the processed human-human interaction data by following `data/README.md`. 
+1. Please refer `checkpoints/README.md` to download checkpoints for the trained models (also change the path under `pretrained_checkpoint_path` in `learning/configs/eval.yml` to your desired checkpoint path).
 1. Note that all the evaluation scores reported in our paper is solely based on human users actually playing the games, and we do not report automated evaluation metrics based on human written instructions.
 ```
 # This example is evaluating one of the models deployed at Round 10
