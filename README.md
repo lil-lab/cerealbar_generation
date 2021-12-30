@@ -18,7 +18,6 @@ We study continual learning for natural language instruction generation, by obse
 
 1. Create the conda environment: 
 ```conda create -n cb_gen python=3.7```
-1. Make sure that git-LFS is installed before cloning the repo.
 1. Clone the repo.
 1. Install the requirements: ```pip install -r requirements.txt```
 
