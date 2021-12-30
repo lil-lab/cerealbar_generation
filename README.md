@@ -55,8 +55,8 @@ python -m learning.training --train_config_file_name learning/configs/continual_
 ## Notes
 This current version of the repo does not include a pipeline for human-system interactions (e.g., the backend server to communicate with Unity game, a deterministic planner to generate system's path-plan and so on.) 
 
-### License
-MIT
+## License
+MIT (partilaly Apache License 2.0, see `model/instruction_generator_model.py`)
 
 ## Citing
 If you find this our work useful in your research, please consider citing the following paper:
