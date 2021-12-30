@@ -1,6 +1,6 @@
 # Continual Learning for Grounded Instruction Generation by Observing Human Following Behavior
 
-This is the code repository for the paper: "Continual Learning for Grounded Instruction Generation by Observing Human Following Behavior", [Noriyuki Kojima](https://kojimano.github.io/), [Alane Suhr](http://alanesuhr.com/) and [Yoav Artzi](https://yoavartzi.com/) (TACL 2021, presented at EMNLP 2021).
+This is the code repository for the paper: "Continual Learning for Grounded Instruction Generation by Observing Human Following Behavior", [Noriyuki Kojima](https://kojimano.github.io/), [Alane Suhr](http://alanesuhr.com/), and [Yoav Artzi](https://yoavartzi.com/) (TACL 2021, presented at EMNLP 2021).
  
  
 ## About
@@ -24,29 +24,30 @@ We study continual learning for natural language instruction generation, by obse
 
  
 ## Subdirectories
-- `model/` defines the model architectures for instruction generation in the cerealbar
-- `agents/` defines information about the CerealBar agents and environment
-- `learning/` is used to train and evalute models.
-- `data/` defines classes and functions for processing data. 
+- `model/` defines the model architectures for instruction generation in the CerealBar
+- `agents/` defines information about the CerealBar agent and environment
+- `learning/` is used to train models.
+- `data/` contains data and define scripts for processing data. 
 - `chekcpoints/` contains model checkpoints. 
 
 
 ## Training models
 
 ### Pre-training on human-human interaction data  
-1. Download GPT-2 weights from [the link](https://drive.google.com/file/d/1UZRXftmNhUIf8iR3g5BoiWNShHcNvlZR/view?usp=sharing) and put it under `/checkpoints/gpt-2`
+1. Download formatted GPT-2 weights from [the link](https://drive.google.com/file/d/1UZRXftmNhUIf8iR3g5BoiWNShHcNvlZR/view?usp=sharing) and put it under `/checkpoints/gpt-2`
 1. Download processed human-human interaction data from the link [the link](https://drive.google.com/file/d/1W6KgB6CL-TYOBB3vL9h7u4qmfGq_edCw/view?usp=sharing) and unzip the folder under `/data`.
 ```
 python -m learning.training --train_config_file_name learning/configs/pretraining.yml --experiment_name pretraining --max_epochs 400 --checkpoint_step 40000 --turnoff_wandb
 ```
-### Training a model from scratch on human-human & human-system interaction data (this example is training model on the aggregated data after the second round of human-system interactions).
+### Training a model from scratch on human-human & human-system interaction data
 1. Download processed human-system interaction data from the link [the link](https://drive.google.com/file/d/1W6KgB6CL-TYOBB3vL9h7u4qmfGq_edCw/view?usp=sharing) and put them under `/data`.
 ```
+# This example is training a model on the aggregated data after the second round of human-system interactions.
 python -m learning.training --train_config_file_name learning/configs/continual_example.yml --experiment_name pretraining --max_epochs 400 --checkpoint_step 40000 --turnoff_wandb
 ```
 
 ## Analysis on models
-### Downloadinf model check points
+### Downloading model checkpoints
 1. Please refer `/checkpoints/README.md` to download checkpoints for the trained models.
 ```
 ```
