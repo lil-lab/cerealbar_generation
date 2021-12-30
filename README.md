@@ -46,7 +46,7 @@ python -m learning.training --train_config_file_name learning/configs/pretrainin
 python -m learning.training --train_config_file_name learning/configs/continual_example.yml --experiment_name pretraining --max_epochs 400 --checkpoint_step 40000 --turnoff_wandb
 ```
 
-## Analysis on models
+## Analyzing models
 ### Downloading model checkpoints
 1. Please refer `/checkpoints/README.md` to download checkpoints for the trained models.
 ```
