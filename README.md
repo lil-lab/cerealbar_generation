@@ -56,8 +56,8 @@ python -m learning.training --train_config_file_name learning/configs/continual_
 
 ### Notes
 The current release of the repo does not include following components
- - A pipeline for human-system interactions (e.g., the backend server to communicate with the Unity game, a deterministic planner to generate system's path-plan, and scripts to evaluate and process interaction data).
- - A visualization tools to interpret the model behaviors on the Unity Graphics.
+ - A pipeline for human-system interactions (e.g., the Unity game, the backend server implementation to communicate with the Unity game, the implmentation of deterministic planner to generate system's path-plan, and scripts to evaluate and process interaction data).
+ - A visualization tool to interpret the model behaviors on the Unity Graphics.
 
 ### License
 MIT (partilaly Apache License 2.0, see `model/instruction_generator_model.py`)
