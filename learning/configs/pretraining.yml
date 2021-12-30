@@ -1,0 +1,60 @@
+train_batch_size: 16
+val_batch_size: 4
+n_layer: 4
+lr: 1e-6
+use_amp: True
+checkpoint_directory: checkpoints
+pretrained_checkpoint_path: ''
+main_data_path: [
+    {
+      "data_path": data/human_human/TRAIN.pkl,
+      "reward_fnc": positive_one,
+      "game_id_files": data/human_human/TRAIN_360_subset_games.txt,
+      "max_games": 360,
+      "max_examples": 20000,
+      "label": "pretraining",
+    }
+]
+full_val_data_path: [
+    {
+      "data_path": data/human_human/DEV.pkl,
+      "reward_fnc": positive_one,
+      "max_games": 3000,
+      "max_examples": 20000,
+      "label": "fullval",
+    },
+]
+cleaned_val_data_path: [
+    {
+      "data_path": data/human_human/syn_DEV.pkl,
+      "reward_fnc": positive_one,
+      "max_games": 3000,
+      "max_examples": 20000,
+      "label": "cleanval",
+    },
+]
+loss_configs: {
+  "main_alpha": 1,
+  "bandit_alpha": 0,
+  "aux_alpha": 0,
+  "kl_alpha": 0,
+  "norm_type": gpt2,
+  "main_dropout": True,
+  "reward_weighting": {
+    "weight_method": "ips",
+    "min_clamp_value": 0.,
+    "max_clamp_value": 20.,
+    "weight_type": "negative_only"
+  },
+  "kl_dropout": {
+    "init_encoder_dropout": False,
+    "init_decoder_dropout": False,
+    "current_encoder_dropout": False,
+    "current_decoder_dropout": False,
+  },
+}
+gradient_clipping: {
+  "method": "clamp",
+  "max_value":  1,
+}
+skip_validation_at_step_zero: True

@@ -1,6 +1,6 @@
 # This is the implementation of Transformer generation model with pseudo self attention (Ziegler et al., 2019)
 # The code is largely borrowed from Hugging Face Implementation of Transformer (https://github.com/huggingface/transformers) Apache License 2.0
-# Quick debugging: python -m model.instruction_generator_model
+# Quick testing: python -m model.instruction_generator_model
 
 import os, sys, copy
 import json

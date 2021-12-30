@@ -21,14 +21,7 @@ We study continual learning for natural language instruction generation, by obse
 1. Make sure that git-LFS is installed before cloning the repo.
 1. Clone the repo.
 1. Install the requirements: ```pip install -r requirements.txt```
-1. Unzip the preprocessed data: `unzip preprocessed.zip`. This will create a new directory `preprocessed/` including 
-two subdirectories: (1) `examples/` includes a pickle file for each example in the dataset; the filenames are prefixed
-with which split the example is from. (2) `games/` includes a pickle file for each original CerealBar game, which 
-includes the game ID and all the static environment information for that game.
-1. Make a directory to store experiments: ```mkdir experiments/```
 
-You will need to install pytorch separately according to your machine's requirements. We tested using torch 1.6.0 and
-1.2.0. See [this page](https://pytorch.org/get-started/previous-versions/) for details.
  
 ## Subdirectories
 - `model/` defines the model architectures for instruction generation in the cerealbar
@@ -37,23 +30,24 @@ You will need to install pytorch separately according to your machine's requirem
 - `data/` defines classes and functions for processing data. 
 - `chekcpoints/` contains model checkpoints. 
 
-## Data and Checkpints
-Please refer `/checkpoints/README.md` to download trained models.
-
-
-## Testing trained models
-```
-```
-### Visualization
-```
-```
 
 ## Training models
 
-### Pre-training on human-human interaction data
+### Pre-training on human-human interaction data  
+1. Download GPT-2 weights from [the link](https://drive.google.com/file/d/1UZRXftmNhUIf8iR3g5BoiWNShHcNvlZR/view?usp=sharing) and put it under `/checkpoints/gpt-2`
+1. Download processed human-human interaction data from the link [the link](https://drive.google.com/file/d/1W6KgB6CL-TYOBB3vL9h7u4qmfGq_edCw/view?usp=sharing) and unzip the folder under `/data`.
 ```
+python -m learning.training --train_config_file_name learning/configs/pretraining.yml --experiment_name pretraining --max_epochs 400 --checkpoint_step 40000 --turnoff_wandb
 ```
-### Fine-tuning on human-human interaction data
+### Training a model from scratch on human-human & human-system interaction data (this example is training model on the aggregated data after the second round of human-system interactions).
+1. Download processed human-system interaction data from the link [the link](https://drive.google.com/file/d/1W6KgB6CL-TYOBB3vL9h7u4qmfGq_edCw/view?usp=sharing) and put them under `/data`.
+```
+python -m learning.training --train_config_file_name learning/configs/continual_example.yml --experiment_name pretraining --max_epochs 400 --checkpoint_step 40000 --turnoff_wandb
+```
+
+## Analysis on models
+### Downloadinf model check points
+1. Please refer `/checkpoints/README.md` to download checkpoints for the trained models.
 ```
 ```
 

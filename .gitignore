@@ -3,6 +3,15 @@ __pycache__/
 !**/__pycache__/
 *.pyc
 
+# logs
+learning/logs/
+
+# data folder
+data/dataset_file
+data/feedback
+data/human_human
+data/sent_probs
+
 # others
 **/.DS_Store
-
+wandb/
