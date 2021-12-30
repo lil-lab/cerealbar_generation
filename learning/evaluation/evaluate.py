@@ -149,7 +149,7 @@ def get_decoder_outputs_and_metircs(decoder, encoded_prompt, state_embeddings, i
                 outputs[i]["sample-bertScore-F1"].append(F1s[i])
     return outputs
 
-def log_stats_to_wandb(outputs, steps: int, num_display_instructions: int = 250, cala_p_t_sore: bool = False, orig_prefix: str = ""):
+def log_stats(outputs, steps: int, num_display_instructions: int = 250, cala_p_t_sore: bool = False, orig_prefix: str = "", logging_wandb: bool = False):
     # calculate and output statistics to wandb
     metrics = {}
     losses = []
@@ -219,7 +219,6 @@ def log_stats_to_wandb(outputs, steps: int, num_display_instructions: int = 250,
 
 
     # calculate p-value
-    # todo: could be buggy :/
     if cala_p_t_sore:
         stacked_sample_bertScore_F1s = np.stack(stacked_sample_bertScore_F1s,1)
 
@@ -243,18 +242,21 @@ def log_stats_to_wandb(outputs, steps: int, num_display_instructions: int = 250,
         metrics["{}sample-bertScore-F1-t".format(prefix)] = t
         metrics["{}sample-bertScore-F1-p".format(prefix)] = p
 
-    wandb.log(metrics, step=steps, commit=False)
+    if logging_wandb:
+        wandb.log(metrics, step=steps, commit=False)
+    print(metrics)
 
     # complie example
-    prefix = "Dev/" if orig_prefix == "" else "{}/".format(orig_prefix)
-    random.seed(7777) # fix a seed and reset a random generator to always pick the same examples
-    num_display_instructions = len(outputs) if len(outputs) < num_display_instructions else num_display_instructions
-    table = wandb.Table(columns=["data_idx", "groundtruth", "arg-max", "sample-1", "sample-2", "sample-3"])
-    for op in random.sample(outputs, num_display_instructions):
-        table.add_data(op["data_idx"], op["ground-truth"], op["argmax"], op["samples"][0], op["samples"][1], op["samples"][2])
+    if logging_wandb:
+        prefix = "Dev/" if orig_prefix == "" else "{}/".format(orig_prefix)
+        random.seed(7777) # fix a seed and reset a random generator to always pick the same examples
+        num_display_instructions = len(outputs) if len(outputs) < num_display_instructions else num_display_instructions
+        table = wandb.Table(columns=["data_idx", "groundtruth", "arg-max", "sample-1", "sample-2", "sample-3"])
+        for op in random.sample(outputs, num_display_instructions):
+            table.add_data(op["data_idx"], op["ground-truth"], op["argmax"], op["samples"][0], op["samples"][1], op["samples"][2])
 
-    wandb.log({"{}/instructions".format(prefix): table},
-              step=steps, commit=False)
+        wandb.log({"{}/instructions".format(prefix): table},
+                step=steps, commit=False)
 
 def log_loss_to_txt(all_outputs, file_name: str = "data/analysis_data/loss/2020-10-10-train-1.txt"):
     outfile = open(file_name, "w")
@@ -298,5 +300,4 @@ def evaluate(encoder, decoder, val_loader: torch.utils.data.DataLoader, tokenize
             outputs[i]["data_idx"] = data_ind[i]
         all_outputs += outputs
 
-    if logging_wandb:
-        log_stats_to_wandb(all_outputs, steps, cala_p_t_sore=cala_p_t_sore, orig_prefix=prefix)
+    log_stats(all_outputs, steps, cala_p_t_sore=cala_p_t_sore, orig_prefix=prefix, logging_wandb=logging_wandb)
