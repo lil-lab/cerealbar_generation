@@ -53,6 +53,7 @@ python -m learning.training --train_config_file_name learning/configs/continual_
 ```
 
 ## Notes
+This current version of the repo does not include a pipeline for human-system interactions (e.g., the backend server to communicate with Unity game, a deterministic planner to generate system's path-plan and so on.) 
 
 ### License
 MIT
