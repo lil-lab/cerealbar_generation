@@ -31,7 +31,7 @@ We study continual learning for natural language instruction generation, by obse
 - `chekcpoints/` contains model checkpoints. 
 
 
-## Training models
+## Train models
 
 ### Pre-training on human-human interaction data  
 1. Download formatted GPT-2 weights from [the link](https://drive.google.com/file/d/1UZRXftmNhUIf8iR3g5BoiWNShHcNvlZR/view?usp=sharing) and put it under `/checkpoints/gpt-2`
@@ -46,7 +46,7 @@ python -m learning.training --train_config_file_name learning/configs/pretrainin
 python -m learning.training --train_config_file_name learning/configs/continual_example.yml --experiment_name pretraining --max_epochs 400 --checkpoint_step 40000 --turnoff_wandb
 ```
 
-## Analyzing models
+## Analyzes models
 ### Downloading model checkpoints
 1. Please refer `/checkpoints/README.md` to download checkpoints for the trained models.
 ```
