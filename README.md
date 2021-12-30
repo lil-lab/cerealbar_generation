@@ -4,7 +4,7 @@ This is the code repository for the paper: "Continual Learning for Grounded Inst
  
  
 ### About
-[paper](https://arxiv.org/abs/2108.04812) | [talk](https://www.youtube.com/watch?v=KkgIMPTS7H0&t=1s) | [project page](https://lil.nlp.cornell.edu/cerealbar/)
+[paper](https://direct.mit.edu/tacl/article/doi/10.1162/tacl_a_00428/108610/Continual-Learning-for-Grounded-Instruction) | [arXiv](https://arxiv.org/abs/2108.04812) | [talk](https://www.youtube.com/watch?v=KkgIMPTS7H0&t=1s) | [project page](https://lil.nlp.cornell.edu/cerealbar/)
 
 We study continual learning for natural language instruction generation, by observing human users' instruction execution. We focus on a collaborative scenario, where the system both acts and delegates tasks to human users using natural language. We compare user execution of generated instructions to the original system intent as an indication to the system's success communicating its intent. We show how to use this signal to improve the system's ability to generate instructions via contextual bandit learning. In interaction with real users, our system demonstrates dramatic improvements in its ability to generate language over time.
 
@@ -53,7 +53,7 @@ python -m learning.training --train_config_file_name learning/configs/continual_
 ```
 
 ### Notes
-This current version of the repo does not include a pipeline for human-system interactions (e.g., the backend server to communicate with Unity game, a deterministic planner to generate system's path-plan and so on.) 
+The current version of the repo does not include a pipeline for human-system interactions (e.g., the backend server to communicate with the Unity game, a deterministic planner to generate system's path-plan and etc.) 
 
 ### License
 MIT (partilaly Apache License 2.0, see `model/instruction_generator_model.py`)
