@@ -58,7 +58,7 @@ This current version of the repo does not include a pipeline for human-system in
 ## License
 MIT (partilaly Apache License 2.0, see `model/instruction_generator_model.py`)
 
-## Citing
+# Citing
 If you find this our work useful in your research, please consider citing the following paper:
 ```
 @article{Kojima2021:gen-learn,
@@ -76,5 +76,5 @@ If you find this our work useful in your research, please consider citing the fo
 }
 ```
 
-## Ackowledegement
+# Ackowledegement
 This research was supported by ARO W911NF21-1-0106, a Google Focused Award, Masason Foundation, a Facebook Fellowship, and NSF under grants No. 1750499 and DGE-1650441. We thank Jonathan Chang, Sasha Rush, the Cornell NLP Group, Robert Hawkins, Dipendra Misra, and John Langford for discussion and comments; Suyi Diao for Unity development; Anna Effenberger for code to compute syntax complexity; Ge Gao, Koji Shiono, and Takayuki Kojima for feedback on our interaction platform; and the crowdsourcing workers for participating in our data collection. Finally, we thank the action editor and the anonymous reviewers for detailed comments.
