@@ -48,7 +48,7 @@ python -m learning.training --train_config_file_name learning/configs/continual_
 
 #### Evaluating models on human written instrucions using automated evaluation metrics
 1. Please make sure you already downloaded the processed human-human interaction data by following `/data/README.md`. 
-1. Please refer `/checkpoints/README.md` to download checkpoints for the trained models (also change `pretrained_checkpoint_path` in `learning/configs/eval.yml` to your desired checkpoint path).
+1. Please refer `/checkpoints/README.md` to download checkpoints for the trained models (also change the path under `pretrained_checkpoint_path` in `learning/configs/eval.yml` to your desired checkpoint path).
 1. Note that all the evaluation scores reported in our paper is solely based on human users actually playing the games, and we do not report automated evaluation metrics based on human written instructions.
 ```
 # This example is evaluating one of the models deployed at Round 10
