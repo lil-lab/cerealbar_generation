@@ -15,30 +15,30 @@ main_data_path: [
       "label": "pretraining",
     },
     {
-      "data_path": data/dataset_file/2021-02-28/supervision.txt,
+      "data_path": data/data_splits/2021-02-28-round1/supervision.txt,
       "reward_fnc": positive_one,
       "max_examples": 20000,
       "label": "positive",
     },
     {
-      "data_path": data/dataset_file/2021-02-28/bandit_withoutuser.txt,
+      "data_path": data/data_splits/2021-02-28-round1/bandit_withoutuser.txt,
       "reward_fnc": negative_one,
       "max_examples": 20000,
       "label": "negative",
-      "sent_prob_path": "data/sent_probs/2021-02-28.pkl",
+      "sent_prob_path": "data/ips_probs/2021-02-28-round1.pkl",
     },
     {
-      "data_path": data/dataset_file/2021-03-01/supervision.txt,
+      "data_path": data/data_splits/2021-03-01-round2/supervision.txt,
       "reward_fnc": positive_one,
       "max_examples": 20000,
       "label": "positive",
     },
     {
-      "data_path": data/dataset_file/2021-03-01/bandit_withoutuser.txt,
+      "data_path": data/data_splits/2021-03-01-round2/bandit_withoutuser.txt,
       "reward_fnc": negative_one,
       "max_examples": 20000,
       "label": "negative",
-      "sent_prob_path": "data/sent_probs/2021-03-01.pkl",
+      "sent_prob_path": "data/ips_probs/2021-03-01-round2.pkl",
     },
 ]
 full_val_data_path: [
