@@ -27,7 +27,7 @@ We study continual learning for natural language instruction generation, by obse
 - `agents/` defines information about the CerealBar agent and environment
 - `learning/` is used to train models.
 - `data/` contains data. 
-- `chekcpoints/` contains model checkpoints. 
+- `checkpoints/` contains model checkpoints. 
 
 
 ### Training models
